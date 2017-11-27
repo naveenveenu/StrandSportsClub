@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sportsClub">
+
+<head>
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="css/admin.css" rel="stylesheet"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="bower_components/angular/angular-csp.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/angular-ui/build/angular-ui.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="stylesheets/main.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <!-- Morris Charts CSS -->
+    <!--<link href="css/plugins/morris.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+
+    <title>Strand's Sports Club</title>
+</head>
+
+<body>
+    <div ng-controller="mainCtrl">
+      <div id="header" ng-include="'/views/header.html'"></div>
+        <div ui-view></div>
+    </div>
+    <!-- FirstName :
+    <input type="text" ng-model='firstName'>
+    <br /> LastName :
+    <input type="text" ng-model='lastName'>
+    <br /> -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui/build/angular-ui.js "></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
+    
+    <script src="javascripts/mainPage.js"></script>
+    <script src="javascripts/fixtures.js"></script>
+    <script src="javascripts/standings.js"></script>
+    <script src="javascripts/teams.js"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/adminPage.js"></script>
+    
+
+</body>
+
+</html>

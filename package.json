@@ -1,0 +1,19 @@
+{
+  "name": "strandsportsclub",
+  "version": "1.0.0",
+  "description": "Strand's Sports Club",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveenveenu/StrandSportsClub.git"
+  },
+  "author": "naveen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naveenveenu/StrandSportsClub/issues"
+  },
+  "homepage": "https://github.com/naveenveenu/StrandSportsClub#readme"
+}
