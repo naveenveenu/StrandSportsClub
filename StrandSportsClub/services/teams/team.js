@@ -21,7 +21,7 @@ var team = {
     var Phone = req.body.phone;
     var userid = "USER_"+ new Date().getTime();
     entity
-      .insert(teamDB, [{ name: Name, phone: Phone, userId : userid }])
+      .insert(teamDB, [{ name: Name, userId : userid }])
       .then(function(result) {
         res.json({ status: "Success" });
       })
@@ -46,7 +46,7 @@ var team = {
 
   updateTeam: function(req, res, next){
     entity
-    .update(teamDB, {"userId" : req.body.address.userId}, {"name" : req.body.address.name, "phone" : req.body.address.phone})
+    .update(teamDB, {"userId" : req.body.address.userId}, {"name" : req.body.address.name})
     .then(function(result){
       res.json({status : "Success", "result" : result});
     }).catch(function(error){
