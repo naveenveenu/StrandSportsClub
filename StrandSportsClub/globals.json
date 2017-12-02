@@ -1,0 +1,9 @@
+{
+	"dbIp": "localhost",
+	"dbName": "teamDB",
+	"dbPoolSize": 5,
+	"dbUsername": "",
+	"dbPassword": "",
+	"redisServer": "localhost",
+	"protocol": "https"
+}
