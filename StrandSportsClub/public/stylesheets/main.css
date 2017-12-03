@@ -14,6 +14,12 @@ body {
   body {
     padding-top: 10px;
   }
+  #icon{
+    max-width: 100px;
+  }
+  h2{
+    font-size: 25px;
+  }
 }
 
 .carousel-item {
@@ -26,6 +32,12 @@ body {
   background-size: cover;
 }
 
+
+#icon{
+  max-width: 200px;
+  margin: 1% auto;
+}
+
 .portfolio-item {
   margin-bottom: 30px;
 }
@@ -34,6 +46,17 @@ body {
     font-size: 50px;
     line-height: normal;
 }
+
+.footer-menu{
+  padding:1%;
+  background-color:#1b2631 ;
+  color:white;
+}
+.footer-copyright{
+  background-color:black;
+  color:white;
+}
+
 
 @media(min-width:768px) {
     #wrapper {
@@ -47,10 +70,20 @@ body {
 
 /* Top Navigation */
 
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus,
+.navbar-inverse .navbar-nav .active a:hover {
+  color: #fff
+}
+
+.navbar-inverse .navbar-nav .li li a{
+  color: #d5d5d5;
+}
+
 .navbar{
+  background-color: #1b2631  ;
   margin-bottom: 0;
   border-radius: 0;
-  padding: 0.1% 0;
+  padding: 0.7% 0;
   font-size: 1.2em;
   border: 0;
 }
@@ -59,6 +92,10 @@ body {
   float: left;
   min-height: 5px;
   padding: 10px 15px 15px;
+}
+
+#page-wrapper{
+  margin-top: 3%;
 }
 
 .top-nav {
@@ -153,3 +190,5 @@ body {
 .panel-beige > a:hover {
     color: #f5f5dc;
 }
+
+

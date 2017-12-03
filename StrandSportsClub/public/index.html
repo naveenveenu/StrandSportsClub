@@ -19,20 +19,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- Morris Charts CSS -->
     <!--<link href="css/plugins/morris.css" rel="stylesheet"> -->
-
     <!-- Custom Fonts -->
     <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-
     <title>Strand's Sports Club</title>
 </head>
 
 <body>
     <div ng-controller="mainCtrl">
-      <div id="header" ng-include="'/views/header.html'"></div>
+        <div id="header" ng-include="'/views/header.html'"></div>
         <div ui-view></div>
+        <div id="footer" ng-include="'/views/footer.html'"></div>
     </div>
     <!-- FirstName :
     <input type="text" ng-model='firstName'>
@@ -44,17 +42,13 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
     <script src="//cdn.jsdelivr.net/bluebird/3.5.0/bluebird.min.js"></script>
-
     <script src="javascripts/mainPage.js"></script>
     <script src="javascripts/fixtures.js"></script>
     <script src="javascripts/standings.js"></script>
     <script src="javascripts/teams.js"></script>
     <script src="javascripts/app.js"></script>
     <script src="javascripts/adminPage.js"></script>
-
-
 </body>
 
 </html>
