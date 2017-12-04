@@ -8,150 +8,70 @@
             templateUrl: '/views/adminPage.html'
         });
     }]);
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     app.controller('adminPageCtrl', ['$scope', '$http', function($scope, $http) {
-        // $scope.phoneNumber = 9964488889;
-        $scope.teamName = '';
+      $scope.team = '';
+    //For ng-if
+      $scope.edit_team ='';
+      $scope.editable_index='';
+      $scope.team_book = [];
 
-        //For ng-if
-        $scope.editTeamName = '';
-        $scope.editableIndex = '';
-        $scope.teamsBook = [];
+    // to fetch from db
+    fetchTeams = function(){
+      $http.get('/team/getTeams', {}).then(function(res){
+        $scope.team_book = res.data;
+      },
+      function(err){
+        console.log(err);
+      });
+    };
 
-        // to fetch from db
-        fetchTeams = function() {
-            $http.get('/addTeam/getTeams', {}).then(function(res) {
-                    $scope.teamsBook = res.data;
-                },
-                function(err) {
-                    console.log(err);
-                });
-        };
+    fetchTeams();
+    $scope.reset = function() {
+      $scope.team ='';
+    };
 
+    $scope.submit = function(team){
+      console.log(team);
+      var teams = {};
+      teams['name'] = team;
+      $http.post('/team/addTeam', teams).then(function(res){
+          console.log(res);
+          fetchTeams();
+          $scope.reset();
+      },function(err){
+          console.log(err);
+      });
+    };
+
+    $scope.delete = function(userId){
+      // $scope.addressBook.push(address); //without backend
+      $http.post('/team/deleteTeam', {"userId" : userId}).then(function(res){
+          console.log(res);
+          fetchTeams();
+      },function(err){
+          console.log(err);
+      });
+
+      // var index = $scope.addressBook.findIndex(i => (i.name === name && i.phone === phone));
+      // console.log("index >>>>" +index);
+      // if(index > -1){
+      //   $scope.addressBook.splice(index, 1);
+      // };
+    };
+
+    $scope.saveName = function(team){
+      $http.post('/team/updateTeams', {'team': team}).then(function(res){
+        console.log(res);
         fetchTeams();
+      },function(err){
+          console.log(err);
+      });
+      $scope.edit_team = false;
+      $scope.editableI_index = -1;
+    };
 
-        $scope.submit = function() {
-            var teams = {};
-            teams['teamName'] = $scope.teamName;
-            // $scope.addressBook.push(address); //without backend
-            $http.post('/addTeam/insertTeam', teams).then(function(res) {
-                console.log(res);
-                fetchTeams();
-            }, function(err) {
-                console.log(err);
-            });
-            $scope.teamName = '';
-        };
 
-        $scope.delete = function(userId) {
-            // $scope.addressBook.push(address); //without backend
-            $http.post('/addTeam/deleteTeam', { "userId": userId }).then(function(res) {
-                console.log(res);
-                fetchTeams();
-            }, function(err) {
-                console.log(err);
-            });
-
-            // var index = $scope.addressBook.findIndex(i => (i.name === name && i.phone === phone));
-            // console.log("index >>>>" +index);
-            // if(index > -1){
-            //   $scope.addressBook.splice(index, 1);
-            // };
-        };
-
-        $scope.setEditable = function(index) {
-            $scope.editTeamName = true;
-            $scope.editableIndex = index;
-        };
-
-        $scope.saveName = function(index) {
-            $http.post('/addTeam/updateTeam', { 'teams': $scope.teamsBook[index] }).then(function(res) {
-                console.log(res);
-                fetchTeams();
-            }, function(err) {
-                console.log(err);
-            });
-            $scope.editTeamName = false;
-            $scope.editableIndex = -1;
-        };
-
-        // $scope.setEditDialog = function(index){
-        //   $scope.editPhone = true;
-        //   $scope.editableIndex = index;
-        // };
-
-    }]);
+  }]);
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//         app.controller('adminPageCtrl', ['$scope', function($scope) {
-//                 $scope.teamName = '';
-//                 $scope.teamsBook = [];
-
-//                 // to fetch from db
-//                 fetchContacts = function() {
-//                     $http.get('/addTeam/getTeams', {}).then(function(res) {
-//                             $scope.teamsBook = res.data;
-//                         },
-//                         function(err) {
-//                             console.log(err);
-//                         });
-//                 };
-
-//                 fetchContacts();
-
-
-//                 $scope.submit = function() {
-//                     var teams = {};
-//                     teams['teamName'] = $scope.teamName;
-//                     // $scope.addressBook.push(address); //without backend
-//                     $http.post('/teams/addTeam', teams).then(function(res) {
-//                         console.log(res);
-//                         fetchContacts();
-//                     }, function(err) {
-//                         console.log(err);
-//                     });
-//                     $scope.teamName = '';
-//                 };
-
-//                 $scope.setEditable = function(index) {
-//                     $scope.editName = true;
-//                     $scope.editableIndex = index;
-//                 };
-
-//                 $scope.saveName = function(index) {
-//                     $http.post('/teams/updateTeams', { 'teams': $scope.teamsBook[index] }).then(function(res) {
-//                         console.log(res);
-//                         fetchContacts();
-//                     }, function(err) {
-//                         console.log(err);
-//                     });
-//                     $scope.editName = false;
-//                     $scope.editableIndex = -1;
-//                 };
-
-//                 $scope.delete = function(userId) {
-//                     // $scope.addressBook.push(address); //without backend
-//                     $http.post('/contact/deleteContact', { "userId": userId }).then(function(res) {
-//                         console.log(res);
-//                         fetchContacts();
-//                     }, function(err) {
-//                         console.log(err);
-//                     });
-
-
-//     }]);
-// })();

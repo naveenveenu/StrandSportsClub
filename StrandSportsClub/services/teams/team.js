@@ -17,11 +17,10 @@ var team = {
   },
 
   insertTeam: function(req, res, next) {
-    var Name = req.body.name;
-    var Phone = req.body.phone;
+    var team_name = req.body.team_name;
     var userid = "USER_"+ new Date().getTime();
     entity
-      .insert(teamDB, [{ name: Name, userId : userid }])
+      .insert(teamDB, [{ name: team_name, userId : userid }])
       .then(function(result) {
         res.json({ status: "Success" });
       })
