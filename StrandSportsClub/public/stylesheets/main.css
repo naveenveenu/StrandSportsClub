@@ -111,9 +111,11 @@ body {
   padding-top: 10px;
 }
 
-/*#addteam{
-  padding-top: 20px;
-}*/
+.panel{
+  margin-top: 2%;
+  width: 500px;
+  margin-bottom: 2%;
+}
 
 #page-wrapper{
   margin-top: 3%;

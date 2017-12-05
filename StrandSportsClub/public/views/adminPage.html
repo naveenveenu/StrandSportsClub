@@ -16,6 +16,7 @@
       <ul class="nav nav-pills">
         <li class="active"><a data-toggle="pill" href="#addsport">ADD SPORT</a></li>
         <li><a data-toggle="pill" href="#addteam">ADD TEAM</a></li>
+        <li><a data-toggle="pill" href="#addplayer">ADD PLAYER</a></li>
         <li><a data-toggle="pill" href="#updatescore">UPDATE SCORE</a></li>
         <li><a data-toggle="pill" href="#extra_menu">EXTRA MENU</a></li>
         <li><a data-toggle="pill" href="#extra_menu">EXTRA MENU</a></li>
@@ -31,7 +32,34 @@
             <button type="submit" class="btn btn-primary" ng-click="submit(sport_name)">Add Sport</button>
           </div>
         </div>
+        <!-- Panel which shows available sports. also gives you option to add sports. -->
+        <div class="panel panel-info">
+            <div class="panel-heading">AVAILABLE SPORTS</div>
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat='sport in sportsBook track by $index'>
+                    <td>{{sport.sport_name}}</td>
+                    <td>remove</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+        </div>
       </div>
+
+
+
+
+
+
 
 
       <div id="addteam" class="tab-pane fade">
@@ -44,49 +72,24 @@
             <button type="submit" class="btn btn-primary" ng-click="submit(team_name)">Add Team</button>
           </div>
         </div>
-<!-- table row starts from here -->
-        <div class="row">
-          <div class="panel-body">
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Team Name</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat='team in team_book track by $index'>
-                    <td>
-                      <!-- When editable need to show Text box with name auto populated with submit button-->
-                      <!-- When submitted need to show label with edit button-->
-                      <div ng-if='edit_team_name && $index == editableIndex'>
-                        <input type="text" class="col-xs-4" ng-model='team.team_name'/>
-                        <a href=""> <i class="fa fa-save" ng-click='saveName(team)'/> </a>
-                        <!-- <a href="" ng-model="editName"> <i class="fa fa-edit" /></a> -->
-                      </div>
-                      <div ng-if="!edit_team_name || $index != editable_index">
-                        {{team.team_name}}
-                        <a href="" > <i class="fa fa-edit" ng-click='setEditable($index)'/> </a>
-                      </div>
-                    </td>
-
-                <td><a href="" ng-click="delete(team.userId)" > <i class="fa fa-times" /> </a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
+</div>
 
 
 
 <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      <div id="addplayer" class="tab-pane fade">
+        <div class="row">
+          <div class="col-sm-4">
+            <input type="text" placeholder="player's name" class="form-control form-control-success" ng-model="playerName">
+          </div>
+          <div class="col-sm-2 offset-sm-3">
+            <button type="submit" class="btn btn-primary" ng-click="submit(playerName)">ADD PLAYER</button>
+          </div>
+        </div>
+      </div>
+
+
       <div id="updatescore" class="tab-pane fade">
         <h3>Update Scores</h3>
       </div>
