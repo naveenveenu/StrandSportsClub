@@ -45,9 +45,7 @@ var admin = {
 
   updateSport: function(req, res, next){
     entity
-    console.log("came into update sport...")
-    console.log(req.body.userId)
-    .update(adminDb, {"userId" : req.body.userId}, {"name" : req.body.sportName})
+    .update(adminDb, {"userId" : req.body.sports.userId}, {"name" : req.body.sports.name})
     .then(function(result){
       res.json({status : "Success", "result" : result});
     }).catch(function(error){
