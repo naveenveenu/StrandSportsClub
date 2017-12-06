@@ -1,6 +1,6 @@
 {
 	"dbIp": "localhost",
-	"dbName": "teamDB",
+	"dbName": "sscAdminDB",
 	"dbPoolSize": 5,
 	"dbUsername": "",
 	"dbPassword": "",

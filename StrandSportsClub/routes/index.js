@@ -1,23 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-// var team = require('../services/teams/team');
-var sport = require('../services/sports/sport');
+var admin = require('../services/admin/admin');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-// router.get('/team/getTeams', team.getTeams);
-// router.post('/team/insertTeam', team.insertTeam);
-// router.post('/team/deleteTeam', team.deleteTeam);
-// router.post('/team/updateTeam', team.updateTeam);
-
-router.get('/sport/getSport', sport.getSport);
-router.post('/sport/addSport', sport.insertSport);
-router.post('/sport/deleteSport', sport.deleteSport);
-router.post('/sport/updateSport', sport.updateSport);
+router.get('/admin/getSport', admin.getSport);
+router.post('/admin/addSport', admin.insertSport);
+router.post('/admin/deleteSport', admin.deleteSport);
+router.post('/admin/updateSport', admin.updateSport);
 
 
 module.exports = router;

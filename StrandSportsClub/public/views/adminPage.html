@@ -34,21 +34,44 @@
         </div>
         <!-- Panel which shows available sports. also gives you option to add sports. -->
         <div class="panel panel-info">
-            <div class="panel-heading">AVAILABLE SPORTS</div>
+            <div class="panel-heading table-responsive">AVAILABLE SPORTS</div>
             <div class="panel-body">
               <table class="table">
                 <thead>
                   <tr>
                     <td>Name</td>
                     <td>Delete</td>
+                    <td>Edit</td>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat='sport in sportsBook track by $index'>
-                    <td>{{sport.sport_name}}</td>
-                    <td>remove</td>
-                  </tr>
+                  <tbody>
+                    <tr ng-repeat="sportName in adminBook track by $index">
+                      <!-- <td>{{sportName.name}}</td> -->
+                      <td>
+                        <div ng-if="editName && $index == editableIndex">
+                          <input type="text" class="col-xs-4" ng-model="sportName.name"/>
+                          <!-- <a href="" <i class="fa fa-save" ng-click='saveName(sportName)'/></a> -->
+                        </div>
 
+                        <div ng-if="!editName || $index != editableIndex">
+                          {{sportName.name}}
+                          <!-- <a href="" <i class="fa fa-edit" ng-click="setEditable($index)"/></a> -->
+                        </div>
+                      </td>
+                      <td><a href="" ng-click='delete(sportName.userId)'><i class="fa fa-times"/></a></td>
+                      <td>
+                        <div ng-if="!editName || $index != editableIndex">
+                          <a href="" <i class="fa fa-edit" ng-click="setEditable($index)"/></a>
+                        </div>
+
+                        <div ng-if="editName && $index == editableIndex">
+                          <a href="" <i class="fa fa-save" ng-click='saveName(sportName.name)'/></a>
+                        </div>
+                      </td>
+
+                    </tr>
+                  </tbody>
                 </tbody>
               </table>
             </div>
