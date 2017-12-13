@@ -1,10 +1,11 @@
 var entity = require("../db/mongoEntity");
-var adminDb = "adminView"
+var teamDB = "teamCol"
+var playerDB = "playerCol"
 
 var admin = {
-  getSport: function(req, res, next) {
+  getPlayer: function(req, res, next) {
     entity
-      .read(adminDb, {})
+      .read(playerDB, {})
       .then(function(result) {
         console.log(result.length);
         res.json(result);
@@ -16,11 +17,11 @@ var admin = {
       });
   },
 
-  insertSport: function(req, res, next) {
-    var sport_name = req.body.name;
+  insertPlayer: function(req, res, next) {
+    var player_name = req.body.name;
     var userid = "USER_"+ new Date().getTime();
     entity
-      .insert(adminDb, [{ name: sport_name, userId : userid }])
+      .insert(playerDB, [{ name: player_name, userId : userid }])
       .then(function(result) {
         res.json({ status: "Success" });
       })
@@ -31,9 +32,9 @@ var admin = {
       });
   },
 
-  deleteSport: function(req, res, next) {
+  deletePlayer: function(req, res, next) {
     entity
-      .remove(adminDb, { "userId" : req.body.userId })
+      .remove(playerDB, { "userId" : req.body.userId })
       .then(function(result) {
         res.json({ status: "Success", "result" : result });
       })
@@ -43,9 +44,9 @@ var admin = {
       });
   },
 
-  updateSport: function(req, res, next){
+  updatePlayer: function(req, res, next){
     entity
-    .update(adminDb, {"userId" : req.body.sports.userId}, {"name" : req.body.sports.name})
+    .update(playerDB, {"userId" : req.body.players.userId}, {"name" : req.body.players.name})
     .then(function(result){
       res.json({status : "Success", "result" : result});
     }).catch(function(error){
@@ -53,10 +54,11 @@ var admin = {
       res.json({status : "Failed", "error" : error});
     });
   },
-
-  getTeams: function(req, res, next) {
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  getTeam: function(req, res, next) {
     entity
-      .read(adminDb, {})
+      .read(teamDB, {})
       .then(function(result) {
         console.log(result.length);
         res.json(result);
@@ -72,7 +74,7 @@ var admin = {
     var team_name = req.body.name;
     var userid = "USER_"+ new Date().getTime();
     entity
-      .insert(adminDb, [{ name: team_name, userId : userid }])
+      .insert(teamDB, [{ name: team_name, userId : userid }])
       .then(function(result) {
         res.json({ status: "Success" });
       })
@@ -85,7 +87,7 @@ var admin = {
 
   deleteTeam: function(req, res, next) {
     entity
-      .remove(adminDb, { "userId" : req.body.userId })
+      .remove(teamDB, { "userId" : req.body.userId })
       .then(function(result) {
         res.json({ status: "Success", "result" : result });
       })
@@ -97,7 +99,7 @@ var admin = {
 
   updateTeam: function(req, res, next){
     entity
-    .update(adminDb, {"userId" : req.body.address.userId}, {"name" : req.body.address.name})
+    .update(teamDB, {"userId" : req.body.teams.userId}, {"name" : req.body.teams.name})
     .then(function(result){
       res.json({status : "Success", "result" : result});
     }).catch(function(error){

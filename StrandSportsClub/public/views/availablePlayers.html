@@ -1,0 +1,39 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Delete</td>
+      <td>Edit</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tbody>
+      <tr ng-repeat="player in adminBook track by $index">
+        <!-- <td>{{sportName.name}}</td> -->
+        <td>
+          <div ng-if="editName && $index == editableIndex">
+            <input type="text" class="col-xs-4" ng-model="player.name" />
+            <!-- <a href="" <i class="fa fa-save" ng-click='saveName(sportName)'/></a> -->
+          </div>
+
+          <div ng-if="!editName || $index != editableIndex">
+            {{player.name}}
+            <!-- <a href="" <i class="fa fa-edit" ng-click="setEditable($index)"/></a> -->
+          </div>
+        </td>
+        <td>
+          <a href="" ng-click='deletePlayer(player.userId)'><i class="fa fa-times" /></a></td>
+        <td>
+          <div ng-if="!editName || $index != editableIndex">
+            <a href="" <i class="fa fa-edit" ng-click="setEditable($index)" /></a>
+          </div>
+
+          <div ng-if="editName && $index == editableIndex">
+            <a href="" <i class="fa fa-save" ng-click='savePlayerName($index)' /></a>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </tbody>
+</table>

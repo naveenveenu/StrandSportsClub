@@ -8,10 +8,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/admin/getSport', admin.getSport);
-router.post('/admin/addSport', admin.insertSport);
-router.post('/admin/deleteSport', admin.deleteSport);
-router.post('/admin/updateSport', admin.updateSport);
+router.get('/admin/getPlayer', admin.getPlayer);
+router.post('/admin/addPlayer', admin.insertPlayer);
+router.post('/admin/deletePlayer', admin.deletePlayer);
+router.post('/admin/updatePlayer', admin.updatePlayer);
 
+router.get('/admin/getTeam', admin.getTeam);
+router.post('/admin/addTeam', admin.insertTeam);
+router.post('/admin/deleteTeam', admin.deleteTeam);
+router.post('/admin/updateTeam', admin.updateTeam);
 
 module.exports = router;

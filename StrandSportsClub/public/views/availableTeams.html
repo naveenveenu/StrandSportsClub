@@ -1,0 +1,34 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>Teams</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="team in teamBook track by $index">
+      <td>
+        <div ng-if="editName && $index == editableIndex">
+          <input type="text" class="col-xs-4" ng-model="team.name" />
+        </div>
+
+        <div ng-if="!editName || $index != editableIndex">
+          {{team.name}}
+          <!-- <a href="" <i class="fa fa-edit" ng-click="setEditable($index)"/></a> -->
+        </div>
+      </td>
+      <!-- Edit option from table -->
+      <td><a href="" ng-click='deleteTeam(team.userId)'><i class="fa fa-times"/></a></td>
+      <td>
+        <div ng-if="!editName || $index != editableIndex">
+          <a href="" <i class="fa fa-edit" ng-click="setEditable($index)" /></a>
+        </div>
+
+        <div ng-if="editName && $index == editableIndex">
+          <a href="" <i class="fa fa-save" ng-click='saveTeamName($index)' /></a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
