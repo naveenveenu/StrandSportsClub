@@ -29,8 +29,8 @@
         };
 
         fetchPlayer();
-        $scope.reset = function() {
-            $scope.player_name = ""
+        $scope.resetPlayer = function() {
+            $scope.player_name = "";
         };
         //submit specific to player names
         $scope.submitPlayer = function(name) {
@@ -41,7 +41,7 @@
             $http.post('/admin/addPlayer', players).then(function(res) {
                 console.log(res);
                 fetchPlayer();
-                $scope.reset();
+                $scope.resetPlayer();
             }, function(err) {
                 console.log(err);
             });
@@ -91,8 +91,8 @@
         };
 
         fetchTeam();
-        $scope.reset = function() {
-            $scope.team_name = ""
+        $scope.resetTeam = function() {
+            $scope.team_name = "";
         };
         // specific to team names...
         $scope.submitTeam = function(name) {
@@ -103,7 +103,7 @@
             $http.post('/admin/addTeam', teams).then(function(res) {
                 console.log(res);
                 fetchTeam();
-                $scope.reset();
+                $scope.resetTeam();
             }, function(err) {
                 console.log(err);
             });
@@ -134,10 +134,8 @@
             $scope.editName = true;
             $scope.editableIndex = index;
         };
-
-
-
-
+//+++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++
 
 
 
