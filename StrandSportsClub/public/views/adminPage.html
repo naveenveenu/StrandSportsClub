@@ -16,6 +16,7 @@
     <ul class="nav nav-pills">
       <li class="active"><a data-toggle="pill" href="#addteam">ADD TEAMS</a></li>
       <li><a data-toggle="pill" href="#addplayer">ADD PLAYERS</a></li>
+      <li><a data-toggle="pill" href="#fixtures">CREATE FIXTURES</a></li>
       <li><a data-toggle="pill" href="#updatescore">UPDATE SCORE</a></li>
       <li><a data-toggle="pill" href="#extra_menu">EXTRA MENU</a></li>
       <li><a data-toggle="pill" href="#extra_menu">EXTRA MENU</a></li>
@@ -37,7 +38,7 @@
           <div class="panel-heading table-responsive">AVAILABLE TEAMS</div>
             <div class="panel-body">
               <!-- table starts from here -->
-              <div ng-include="'views/availableTeams.html'"></div>
+              <div ng-include="'views/admin/availableTeams.html'"></div>
               <!-- Table ends here -->
             </div>
           </div>
@@ -58,12 +59,18 @@
           <div class="panel-heading table-responsive">AVAILABLE PLAYERS</div>
           <div class="panel-body">
             <!-- table for available players starts from here -->
-            <div ng-include="'views/availablePlayers.html'"></div>
+            <div ng-include="'views/admin/availablePlayers.html'"></div>
             <!-- available palyers table end here. -->
           </div>
         </div>
       </div>
 
+<!-- fixtures tab starts from here  -->
+      <div id="fixtures" class="tab-pane fade">
+        <h3>Create Fixtures..</h3>
+        <div ng-include="'views/admin/addFixtures.html'"></div>
+      </div>
+<!--fixtures tab ends here  -->
       <!-- update Scores starts here. -->
       <div id="updatescore" class="tab-pane fade">
         <h3>Update Scores</h3>
